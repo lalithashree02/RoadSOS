@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RoadSOS – Emergency Road Assistance Framework</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
+<style>
+  :root {
+    --clr-bg:      #f4f6f9;         /* Sophisticated Light Slate background */
+    --clr-panel:   #ffffff;         /* Crisp White cards */
+    --clr-card:    #eef2f7;         /* Subtle gray panels */
+    --clr-border:  rgba(0, 0, 0, 0.06);
+    --clr-accent:  #ff5c2b;         /* Standard theme compliance color */
+    --clr-accent2: #e24b4a;         /* Medical / Help warning Red */
+    --clr-text:    #1e2530;         /* Deep readable dark charcoal */
+    --clr-muted:   #626c7f;         /* Elegant cool slate gray */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--clr-bg);
+    color: var(--clr-text);
+    font-family: 'Barlow', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    border-bottom: 1px solid var(--clr-border);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--clr-text);
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--clr-accent); }
+
+  .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--clr-muted); font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--clr-text); }
+
+  .hero {
+    padding: 7rem 5% 5rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 4.2rem;
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: #11161f;
+  }
+  .hero p { color: var(--clr-muted); font-size: 1.3rem; margin-bottom: 2.5rem; max-width: 680px; margin-inline: auto; }
+
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2.2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+  }
+  .btn-primary { background: var(--clr-accent); color: white; box-shadow: 0 4px 14px rgba(255,92,43,0.25); }
+  .btn-primary:hover { background: #e04b1f; transform: translateY(-1px); }
+  .btn-secondary { background: var(--clr-panel); color: var(--clr-text); border: 1px solid var(--clr-border); }
+  .btn-secondary:hover { background: var(--clr-card); color: var(--clr-accent); }
+
+  .features { padding: 5rem 5%; max-width: 1200px; margin: 0 auto; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .globe-card {
+    background: var(--clr-panel);
+    border: 1px solid var(--clr-border);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  }
+  .globe-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; text-transform: uppercase; margin-bottom: 1rem; color: #11161f; }
+  .globe-card p { color: var(--clr-muted); font-size: 0.95rem; }
+
+  .cta-section { background: var(--clr-panel); padding: 5rem 5%; border-top: 1px solid var(--clr-border); text-shadow: none; text-align: center; }
+  .section-tag { color: var(--clr-accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem; font-size: 0.9rem; }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; color: #11161f; }
+  .section-sub { color: var(--clr-muted); max-width: 600px; margin: 0 auto 2rem; }
+
+  footer { display: flex; justify-content: space-between; align-items: center; padding: 2.5rem 5%; border-top: 1px solid var(--clr-border); background: #ffffff; color: var(--clr-muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo">Road<span>SOS</span></a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="/quick-sos" style="color: var(--clr-accent2); font-weight: 600;">Quick SOS Utility</a></li>
+      <li><a href="/app" class="btn-primary" style="padding: 0.5rem 1.2rem; color: #fff;">Open Live Map</a></li>
+    </ul>
+  </header>
+
+  <section class="hero">
+    <h1>Your Digital Lifeline On Empty Highways</h1>
+    <p>Instantly search and query over 73,000 verified regional hospitals, police stations, towing trucks, and puncture mechanics across India, optimized for low-network environments.</p>
+    <div class="cta-actions">
+      <a href="/app" class="btn-primary">
+        <i class="ti ti-map-pin"></i> Launch Interactive Map
+      </a>
+      <a href="/quick-sos" class="btn-secondary">
+        <i class="ti ti-alert-triangle"></i> Standalone Rapid SOS
+      </a>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="section-tag" style="text-align:center">Safety System Architecture</div>
+    <div class="section-title" style="text-align:center">Engineered for Emergencies</div>
+    
+    <div class="grid-3">
+      <div class="globe-card">
+        <h3><i class="ti ti-antenna" style="color:var(--clr-accent)"></i> &nbsp;Highway Resilient</h3>
+        <p>Built directly over high-fidelity OpenStreetMap data, helping you pin coordinates accurately where common consumer applications frequently lose data signal sync.</p>
+      </div>
+      <div class="globe-card">
+        <h3><i class="ti ti-database" style="color:var(--clr-accent)"></i> &nbsp;73k+ System Nodes</h3>
+        <p>Direct live tracking connection across standard police stations, regional trauma centers, private flatbed crane operators, and mechanical repair units.</p>
+      </div>
+      <div class="globe-card">
+        <h3><i class="ti ti-bolt" style="color:var(--clr-accent)"></i> &nbsp;Vector Calculations</h3>
+        <p>Processes complex Haversine geometric range formulas instantly inside the background servers to map immediate spatial proximity options within milliseconds.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="section-tag">Instant Peace of Mind</div>
+    <div class="section-title">Access RoadSOS Before You Need It</div>
+    <p class="section-sub">The most vital window to look up emergency coordinates is right before you step on the gas. Keep this safety tool tab pinned for long journeys.</p>
+    <div class="cta-actions">
+      <a href="/app" class="btn-primary"><i class="ti ti-map-pin"></i> Open Live Map</a>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#" class="logo">Road<span>SOS</span></a>
+    <span>Built to preserve highway safety. © 2026</span>
+  </footer>
+
+</body>
+</html>
